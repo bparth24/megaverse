@@ -7,9 +7,7 @@ Crossmint Megaverse (Phase 1 & 2)
 Phase 1: Do a 🪐POLYanet cross
 In this phase you will use the megaverse service API to create 🪐POLYanets forming an X-shape like the following:
 
-```markdown
-![Phase 1 Result](/src/images/Phase%201%20Result.png)
-```
+![Phase 1 Result](https://github.com/bparth24/megaverse/blob/80fcaf25bf4397f7b36ddafef183b3f404381838/src/images/Phase%201%20Result.png)
 
 ## Phase 2
 
@@ -26,9 +24,7 @@ IMPORTANT: Building the map manually is NOT a solution we are looking for here. 
 
 The final result will look like this:
 
-```markdown
-![Phase 2 Result](/src/images/Phase%202%20Result.png)
-```
+![Phase 2 Result](https://github.com/bparth24/megaverse/blob/80fcaf25bf4397f7b36ddafef183b3f404381838/src/images/Phase%202%20Result.png)
 
 ### How to Run the Project
 
