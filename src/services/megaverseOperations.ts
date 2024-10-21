@@ -1,31 +1,21 @@
 import { EntityOperations } from "./entityOperations";
-import { AdditionalParamsTypes, EntityDataTypes, SoloonColor, ComethDirection } from "./types";
-import { handleError } from "./utils/errorHandler";
+import { AdditionalParamsTypes, EntityDataTypes } from "../types";
+import { handleError } from "../utils/errorHandler";
+import { isValidAdditionalParams } from "../utils/additionalParamValidator";
+
 
 export class MegaverseOperations {
-
-    // Type guard to check if additionalParams is of type AdditionalParamsTypes
-    private isValidAdditionalParams(params: any): params is AdditionalParamsTypes {
-        if (params.color && !this.isValidSoloonColor(params.color)) {
-            return false;
-        }
-        if (params.direction && !this.isValidComethDirection(params.direction)) {
-            return false;
-        }
-        return true;
-    }
-
-    // Helper method to validate SoloonColor
-    private isValidSoloonColor(color: any): color is SoloonColor {
-        return ['white', 'blue', 'purple', 'red'].includes(color);
-    }
-
-    // Helper method to validate ComethDirection
-    private isValidComethDirection(direction: any): direction is ComethDirection {
-        return ['up', 'down', 'left', 'right'].includes(direction);
-    }
-
-    // Implement createMegaverse method
+    
+    /**
+     * Creates a megaverse by processing an array of parsed goal map data.
+     * 
+     * @param parsedGoalMapData - An array of entity data objects to be processed.
+     * @returns A promise that resolves when the megaverse has been successfully created.
+     * 
+     * @throws Will handle and log errors if the parsedGoalMapData is invalid or empty,
+     *         or if there are issues during the creation of entities.
+     * 
+     */
     async createMegaverse(parsedGoalMapData: EntityDataTypes[]): Promise<void> {
         if (!Array.isArray(parsedGoalMapData) || parsedGoalMapData.length === 0) {
             handleError(new Error("Invalid or empty parsedGoalMapData"), "Failed to create megaverse");
@@ -37,7 +27,7 @@ export class MegaverseOperations {
                 const { entityType, row, column, additionalParams } = entityData;
 
                 // Ensure additionalParams is of type AdditionalParamsTypes
-                if (additionalParams && !this.isValidAdditionalParams(additionalParams)) {
+                if (additionalParams && !isValidAdditionalParams(additionalParams)) {
                     handleError(new Error("Invalid additionalParams"), `Failed to create entity at row ${row}, column ${column}`);
                     continue;
                 }
@@ -52,7 +42,16 @@ export class MegaverseOperations {
         }
     }
 
-    // Implement cleanupMegaVerse method
+    /**
+     * Cleans up the megaverse by deleting entities based on the parsed goal map data.
+     * 
+     * @param parsedGoalMapData - An array of entity data objects to be processed for cleanup.
+     * @returns A promise that resolves when the megaverse has been successfully cleaned up.
+     * 
+     * @throws Will handle and log errors if the parsedGoalMapData is invalid or empty,
+     *         or if there are issues during the deletion of entities.
+     * 
+     */
     async cleanupMegaverse(parsedGoalMapData: EntityDataTypes[]): Promise<void> {
         if (!Array.isArray(parsedGoalMapData) || parsedGoalMapData.length === 0) {
             handleError(new Error("Invalid or empty parsedGoalMapData"), "Failed to clean up megaverse");

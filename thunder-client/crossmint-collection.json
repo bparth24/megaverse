@@ -1,0 +1,172 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "crossmint-collection",
+    "collectionId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+    "dateExported": "2024-10-21T02:14:08.290Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e3723c35-991c-4b8f-9589-762d0e579be3",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "cleanup-megaverse",
+            "url": "http://localhost:3000/api/cleanup-megaverse",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-10-21T02:10:59.606Z",
+            "modified": "2024-10-21T02:10:59.606Z",
+            "headers": []
+        },
+        {
+            "_id": "f4819e76-4708-48c4-87b4-53a98b814cda",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "create-megaverse",
+            "url": "http://localhost:3000/api/create-megaverse",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-10-21T02:12:35.087Z",
+            "modified": "2024-10-21T02:12:35.087Z",
+            "headers": []
+        },
+        {
+            "_id": "0719240f-27cd-4a06-a0db-3a24e005196b",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "goal-map actual",
+            "url": "https://challenge.crossmint.io/api/map/8c1d20a9-c076-452d-be29-349953dd89d9/goal",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-10-21T02:12:48.896Z",
+            "modified": "2024-10-21T02:12:48.896Z",
+            "headers": []
+        },
+        {
+            "_id": "f6fb52b3-8048-43cb-a66a-951ec2522443",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "goal-map",
+            "url": "http://localhost:3000/api/goal-map",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-10-21T02:13:00.382Z",
+            "modified": "2024-10-21T02:13:00.382Z",
+            "headers": []
+        },
+        {
+            "_id": "7880b69a-139c-4966-8f43-ee8d97dd6f85",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "delete-entity",
+            "url": "http://localhost:3000/api/delete-entity",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-10-21T02:13:08.658Z",
+            "modified": "2024-10-21T02:13:08.658Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"entityType\": \"comeths\",\n    \"row\": 3,\n    \"column\": 3\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3d67aa8d-328b-43b5-af18-08ad7877e8ad",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "place-entity-soloons",
+            "url": "http://localhost:3000/api/place-entity",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-10-21T02:13:16.441Z",
+            "modified": "2024-10-21T02:13:16.441Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"entityType\": \"soloons\",\n    \"row\": 2,\n    \"column\": 2,\n    \"additionalParams\": {\n        \"color\": \"blue\"\n    }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "5ea0690d-7b63-4505-b45e-e8210079a4e5",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "place-entity-polyanets",
+            "url": "http://localhost:3000/api/place-entity",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-10-21T02:13:23.203Z",
+            "modified": "2024-10-21T02:13:23.203Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"entityType\": \"polyanets\",\n    \"row\": 1,\n    \"column\": 1\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "107a29a4-b5d8-4e38-bb5f-e0a293f2a6ce",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "place-entity-comeths",
+            "url": "http://localhost:3000/api/place-entity",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-10-21T02:13:29.690Z",
+            "modified": "2024-10-21T02:13:29.690Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"entityType\": \"comeths\",\n    \"row\": 3,\n    \"column\": 3,\n    \"additionalParams\": {\n        \"direction\": \"up\"\n    }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9ae3f661-0fc6-4304-b932-8c8343a5bb6c",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "cleanup-x-shape",
+            "url": "http://localhost:3000/api/cleanup-x-shape",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-10-21T02:13:36.809Z",
+            "modified": "2024-10-21T02:13:36.809Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"gridSize\": 11\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "75dd367d-9ef2-45b4-9cf0-2b4041346485",
+            "colId": "e16ed938-88af-42c9-9552-30545bdea0ec",
+            "containerId": "",
+            "name": "create-x-shape",
+            "url": "http://localhost:3000/api/create-x-shape",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-10-21T02:13:43.261Z",
+            "modified": "2024-10-21T02:13:43.261Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"gridSize\": 11\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "ND9mrkJMJjRXqqs7KXhm7dlsObIoiHBvBWH-NKG47I1KBGZ8VHA-Nsktfki2LE6OR2LzhLTQHht9yvpSkOucng"
+}

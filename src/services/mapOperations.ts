@@ -1,8 +1,14 @@
 import axios from "axios";
-import { config } from "./config";
-import { handleError } from "./utils/errorHandler";
-import { SoloonColor, ComethDirection, EntityDataTypes, AdditionalParamsTypes } from "./types";
+import { config } from "../config";
+import { handleError } from "../utils/errorHandler";
+import { SoloonColor, ComethDirection, EntityDataTypes, AdditionalParamsTypes } from "../types";
 
+/**
+ * Fetches the goal map from the Crossmint API.
+ * 
+ * @returns A promise that resolves with the goal map data.
+ * @throws Will throw an error if the goal map data is invalid or missing.
+ */
 export async function fetchGoalMap(): Promise<any> {
     try {
         const crossmintApiUrl = `${config.crossmintApiUrl}/map/${config.candidateId}/goal`;
@@ -33,6 +39,14 @@ export async function fetchGoalMap(): Promise<any> {
     }
 }
 
+/**
+ * Parses the goal map data and returns an array of entity data.
+ * 
+ * @param goalMap - The goal map data fetched from the Crossmint API.
+ * @returns An array of entity data.
+ * 
+ * Remarks: ToDo: hard code color and direction values can be improved using enums.
+ */
 export function parseGoalMap(goalMap: any): EntityDataTypes[] {
     const entities: EntityDataTypes[] = [];
 
@@ -75,6 +89,12 @@ export function parseGoalMap(goalMap: any): EntityDataTypes[] {
     return entities;
 }
 
+/**
+ * Fetches the goal map from the Crossmint API and returns the parsed goal map data.
+ * 
+ * @returns A promise that resolves with the parsed goal map data.
+ * @throws Will throw an error if the goal map data is invalid or missing.
+ */
 export async function getParsedGoalMap(): Promise<EntityDataTypes[]> {
     try {
         const goalMap = await fetchGoalMap();

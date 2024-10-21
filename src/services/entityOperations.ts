@@ -1,9 +1,11 @@
 import axios from "axios";
-import { config } from "./config";
-import { AdditionalParamsTypes } from "./types";
-import { handleError } from "./utils/errorHandler";
+import { config } from "../config";
+import { AdditionalParamsTypes } from "../types";
+import { handleError } from "../utils/errorHandler";
 
-// an EntityOperation class that encapsulates all CRUD operations for different entities (polyanets, soloons, comeths)
+/**
+ * EntityOperation Class that encapsulates all CRUD operations for different entities (polyanets, soloons, comeths).
+ */
 export class EntityOperations {
     entityType: string;
 
@@ -11,6 +13,12 @@ export class EntityOperations {
         this.entityType = entityType;
     }
 
+    /**
+     * Constructs the Crossmint API URL based on the entity type.
+     *
+     * @returns {string} The Crossmint API URL for the specified entity type.
+     * @throws {Error} Throws an error if the entity type is unknown.
+     */
     private getCrossmintApiUrl(): string {
         switch (this.entityType) {
             case 'polyanets':
@@ -24,7 +32,19 @@ export class EntityOperations {
         }
     }
 
-    // Implement the placeEntity method
+    /**
+     * Places an entity at the specified row and column with additional parameters.
+     * 
+     * @param row - The row where the entity should be placed.
+     * @param column - The column where the entity should be placed.
+     * @param additionalParams - Additional parameters required for placing the entity.
+     * 
+     * @throws Will throw an error if required parameters for specific entity types are missing or invalid.
+     * 
+     * @returns A promise that resolves when the entity is successfully placed.
+     * 
+     * Remarks: ToDo: Validation to additionalPrarams can be improved using enums and generalized in utils.
+     */
     async placeEntity(row: number, column: number, additionalParams: AdditionalParamsTypes): Promise<void> {
         try{
             let crossmintApiUrl = this.getCrossmintApiUrl();
@@ -61,7 +81,14 @@ export class EntityOperations {
         }
     }
 
-    // Implement the deleteEntity method
+    /**
+     * Deletes an entity at the specified row and column.
+     * 
+     * @param row - The row where the entity should be deleted.
+     * @param column - The column where the entity should be deleted.
+     * 
+     * @returns A promise that resolves when the entity is successfully deleted.
+     */
     async deleteEntity(row: number, column: number): Promise<void> {
         try {
             const crossmintApiUrl = this.getCrossmintApiUrl();
