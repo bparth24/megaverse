@@ -1,14 +1,18 @@
 import axios from "axios";
-// import axiosRetry from "axios-retry";
 import { config } from "../config";
 import { handleError } from "../utils/errorHandler";
 
-// Retry Logic: The axios-retry library is used to automatically retry failed requests up to 3 times with exponential backoff.
-// axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
+/**
+ * Places a POLYanet at the specified row and column coordinates.
+ *
+ * @param row - The row coordinate where the POLYanet should be placed.
+ * @param column - The column coordinate where the POLYanet should be placed.
+ * @returns A promise that resolves when the POLYanet has been successfully placed.
+ * @throws Will throw an error if the placement operation fails.
+ */
 export const placePolyanet = async(row: number, column: number): Promise<void> => {
     try {
-        // console.log("crossmintApiUrl", `${config.crossmintApiUrl}/polyanets`);
         await axios.post(`${config.crossmintApiUrl}/polyanets`, {
             candidateId: config.candidateId,
             row,
@@ -20,6 +24,14 @@ export const placePolyanet = async(row: number, column: number): Promise<void> =
     }
 }
 
+/**
+ * Deletes a POLYanet at the specified row and column coordinates.
+ *
+ * @param row - The row coordinate where the POLYanet should be deleted.
+ * @param column - The column coordinate where the POLYanet should be deleted.
+ * @returns A promise that resolves when the POLYanet has been successfully deleted.
+ * @throws Will throw an error if the deletion operation fails.
+ */
 export const deletePolyanet = async(row: number, column: number): Promise<void> => {
     try {
         const apiUrl = `${config.crossmintApiUrl}/polyanets`;

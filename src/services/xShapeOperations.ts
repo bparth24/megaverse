@@ -1,12 +1,15 @@
-import { placePolyanet, deletePolyanet } from "./api/polyanet";
+import { placePolyanet, deletePolyanet } from "../services/polyanetOperations";
 
-// Define the grid size (11 x 11)
-// const GRID_SIZE = 11;
-
+/**
+ * Creates an X-shape structure in the grid for Phase 1.
+ *
+ * @param gridSize - The size of the grid.
+ * @returns A promise that resolves to void.
+ *
+ */
 const createXShape = async (gridSize: number): Promise<void> => {
     const placedPolyanets: { row: number, column: number }[] = [];
 
-    // 3rd Try
     try{
         for(let row = 2; row < gridSize - 2; row++){
             for(let column =2; column < gridSize - 2; column++){
@@ -19,21 +22,15 @@ const createXShape = async (gridSize: number): Promise<void> => {
     } catch (error) {
         console.error("Error occurred while placing Polyanets:", error);
     }
-
-    // 2nd Try
-    // for (let row = 2; row < gridSize - 2; row++) {
-    //     for (let column = 2; column < gridSize - 2; column++) {
-    //         if (row === column || row + column === gridSize - 1) {
-    //             await placePolyanet(row, column);
-    //         }
-    //     }
-    // }
 };
 
-// createXShape(GRID_SIZE).catch((error) => {
-//     console.error(error);
-// });
-
+/**
+ * Cleans up the X-shape structure from the grid for Phase 1.
+ *
+ * @param gridSize - The size of the grid.
+ * @returns A promise that resolves to void.
+ *
+ */
 const cleanupXShape = async (gridSize: number): Promise<void> => {
     for (let row = 0; row < gridSize; row++) {
         for (let column = 0; column < gridSize; column++) {
@@ -41,10 +38,5 @@ const cleanupXShape = async (gridSize: number): Promise<void> => {
         }
     }
 };
-
-// Call cleanupXShape when needed
-// cleanupXShape(GRID_SIZE).catch((error) => {
-//     console.error(error);
-// });
 
 export { createXShape, cleanupXShape };

@@ -1,26 +1,25 @@
 import express from 'express';
-import { createXShape, cleanupXShape } from './XShapeOperations';
+import { createXShapeHandler, cleanupXShapeHandler } from './controllers/xShapeController'; // Phase 1
+import { placeEntityHandler, deleteEntityHandler } from './controllers/entityController'; // Phase 2
+import { fetchGoalMapHandler } from './controllers/mapController'; // Phase 2
+import { createMegaverseHandler, cleanupMegaverseHandler } from './controllers/megaversreController';
+
 
 const routes = express.Router();
 
-routes.post("/create-x-shape", async (req, res) => {
-    try {
-        await createXShape(req.body.gridSize);
-        res.status(200).json({ message: "X-shape created successfully" });
-    } catch (error) {
-        console.error("Error creating X-shape:", error);
-        res.status(500).json({ message: "Failed to create X-shape" });
-    }
-});
+// Phase 2 Create Megaverse Route & Cleanup Megaverse Route
+routes.post("/create-megaverse", createMegaverseHandler);
+routes.post("/cleanup-megaverse", cleanupMegaverseHandler);
 
-routes.post("/cleanup-x-shape", async (req, res) => {
-    try {
-        await cleanupXShape(req.body.gridSize);
-        res.status(200).json({ message: "X-shape cleaned up successfully" });
-    } catch (error) {
-        console.error("Error cleaning up X-shape:", error);
-        res.status(500).json({ message: "Failed to clean up X-shape" });
-    }
-});
+// Phase 2 Get Goal Map Route
+routes.get("/goal-map", fetchGoalMapHandler);
+
+// Phase 2 Place Entity Route & Delete Entity Route - Testing Purpose Only
+routes.post("/place-entity", placeEntityHandler);
+routes.post("/delete-entity", deleteEntityHandler);
+
+// Phase 1 Create X Shape Route & Cleanup X Shape Route
+routes.post("/create-x-shape", createXShapeHandler);
+routes.post("/cleanup-x-shape", cleanupXShapeHandler);
 
 export default routes;
