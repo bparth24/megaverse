@@ -140,7 +140,7 @@ Make sure to check the project's `package.json` file for any additional scripts 
 
 ### Thunder Client API Collection
 
-To simplify testing the API, we have included a Thunder Client collection with pre-configured requests.
+To simplify testing the API, I have included a Thunder Client collection with pre-configured requests.
 
 #### Importing the Collection
 
@@ -162,4 +162,4 @@ The collection includes the following requests:
 * **Place Entity**: `POST /api/place-entity`
 * **Delete Entity**: `POST /api/delete-entity`
 
-You can use these requests to interact with the API endpoints directly from Thunder Client.
+Use these requests to interact with the API endpoints directly from Thunder Client.
